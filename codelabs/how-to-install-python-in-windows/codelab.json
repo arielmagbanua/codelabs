@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-03-28T23:02:19+08:00",
+  "id": "how-to-install-python-in-windows",
+  "duration": 0,
+  "title": "How to Install Python in Windows",
+  "authors": "Ariel",
+  "summary": "How to Install Python in Windows",
+  "source": "how-to-install-python-in-windows.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "python",
+    "about"
+  ],
+  "tags": [
+    "python"
+  ],
+  "url": "how-to-install-python-in-windows"
+}

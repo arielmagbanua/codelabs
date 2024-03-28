@@ -1,18 +1,17 @@
-summary: How to Install Python in Mac
-id: how-to-install-python-in-mac
+summary: How to Install Python in Windows
+id: how-to-install-python-in-windows
 categories: Python
 tags: python
 status: Published
 authors: Ariel
 
-# How to Install Python in Mac
+# How to Install Python in Windows
 
 <!-- ------------------------ -->
 ## Overview
 
 ### What You Will Learn 
-- How to install python in Mac using the pk installer.
-- How to install python with Homebrew.
+  * How to install python in Windows.
 
 <!-- ------------------------ -->
 ## How to Install Python in Mac Using the PK Installer.

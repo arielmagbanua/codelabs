@@ -11,7 +11,7 @@ Feedback Link: https://zarin.io
 ## Overview 
 Duration: 1
 
-### What You’ll Learn 
+### What You Will Learn 
 - how to set the amount of time each slide will take to finish 
 - how to include code snippets 
 - how to hyperlink items 
