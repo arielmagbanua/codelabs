@@ -1,0 +1,111 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>How to Install Python in Mac</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="how-to-install-python-in-mac"
+                  title="How to Install Python in Mac"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Overview" duration="0">
+        <h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
+<ul class="checklist">
+<li>How to install python in Mac using the pk installer.</li>
+<li>How to install python with Homebrew.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="How to Install Python in Mac Using the PK Installer." duration="0">
+        <p>This is probably the easiest way to install python in your Mac computer. To install python, do the following steps:</p>
+<ol type="1">
+<li>Visit the <a href="https://www.python.org/downloads/" target="_blank">downloads</a> page of Python.</li>
+<li>Download the latest (or your desired) version of Python.</li>
+<li>Open the downloaded <code>.pk</code> file and a dialog box will appear like below.</li>
+</ol>
+<p class="image-container"><img src="img/9e82cefca956a342.webp">   </p>
+<p> 4. Read the important information (Read Me) and continue to the next step.   </p>
+<p class="image-container"><img src="img/62e51b2f50bd8a7.png">   </p>
+<p> 5. Understand the license and click continue.   </p>
+<p class="image-container"><img src="img/8d1d341309cc141f.png">   </p>
+<p> 6. Click on agree if you agree with the agreement and conditions.   </p>
+<p class="image-container"><img src="img/94e532ef72219088.png">   </p>
+<p> 7. Select the destination where you would like to install Python. It is recommended to use the default install destination.   </p>
+<p class="image-container"><img src="img/9fcdbb11b1ae7246.png">   </p>
+<p> 8. Installation will commence, and you will get the message below once done.   </p>
+<p class="image-container"><img src="img/d6653591ced67899.png">   </p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="How to install python with Homebrew" duration="0">
+        <p><a href="https://brew.sh" target="_blank">Homebrew</a>, a package manager for Mac, is another way to install Python. This approach is preferred by users who want to install Python from the command line. However, it requires Homebrew to be already up and running on your Mac.</p>
+<ol type="1">
+<li>Open terminal.</li>
+<li>Update Homebrew</li>
+</ol>
+<pre><code language="language-bash" class="language-bash">$ brew update
+</code></pre>
+<ol type="1" start="3">
+<li>Execute install command for Python. This should install Python in your machine without problem.</li>
+</ol>
+<pre><code language="language-bash" class="language-bash">$ brew install python
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Verify Python is Installed" duration="0">
+        <p>There are various ways to verify if Python was successfully installed in your Mac machine.</p>
+<p>You can use the terminal command <code>which</code>, where it will print the <code>path</code> of Python in your machine:</p>
+<pre><code language="language-bash" class="language-bash">$ which python
+# prints the following
+$ /usr/local/bin/python
+</code></pre>
+<p>You can also execute the command to check the version of Python installed in your machine.</p>
+<pre><code language="language-bash" class="language-bash">$ python --version
+# prints the following
+Python 3.10.0
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conclusion" duration="0">
+        <p>Congratulations! You have successfully installed <code>Python</code> in your machine. Happy coding!!!</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
