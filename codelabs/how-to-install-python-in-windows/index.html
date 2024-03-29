@@ -29,8 +29,8 @@
                   feedback-link="">
     
       <google-codelab-step label="Overview" duration="0">
-        <h2 class="checklist" is-upgraded>What You&#39;ll Learn</h2>
-<ul class="checklist">
+        <h2 is-upgraded>What You Will Learn</h2>
+<ul>
 <li>How to install python in Windows.</li>
 </ul>
 
@@ -42,48 +42,20 @@
 <ol type="1">
 <li>Visit the <a href="https://www.python.org/downloads/" target="_blank">downloads</a> page of Python.</li>
 <li>Download the latest (or your desired) version of Python.</li>
-<li>Open the downloaded <code>.pk</code> file and a dialog box will appear like below.</li>
+<li>Open the downloaded <code>.exe</code> file and a dialog box will appear like below. <img alt="Install Window" src="img/bdcc6a9fb6b98963.png"></li>
+<li>Tick the <code>Add python.exe to PATH</code>, and then click the <code>Install Now</code> option.</li>
+<li>A dialog prompt will appear, then click <code>Yes</code> to proceed with the installation progress. <img alt="Installation Progress" src="img/850901bdae862e2c.png"></li>
+<li>After few seconds, you will be notified if the setup is successful. Click the <code>close</code> button to close the dialog. <img alt="Installation Progress" src="img/d7330523e3ec5826.png"></li>
 </ol>
-<p class="image-container"><img src="img/9e82cefca956a342.webp">   </p>
-<p> 4. Read the important information (Read Me) and continue to the next step.   </p>
-<p class="image-container"><img src="img/62e51b2f50bd8a7.png">   </p>
-<p> 5. Understand the license and click continue.   </p>
-<p class="image-container"><img src="img/8d1d341309cc141f.png">   </p>
-<p> 6. Click on agree if you agree with the agreement and conditions.   </p>
-<p class="image-container"><img src="img/94e532ef72219088.png">   </p>
-<p> 7. Select the destination where you would like to install Python. It is recommended to use the default install destination.   </p>
-<p class="image-container"><img src="img/9fcdbb11b1ae7246.png">   </p>
-<p> 8. Installation will commence, and you will get the message below once done.   </p>
-<p class="image-container"><img src="img/d6653591ced67899.png">   </p>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="How to install python with Homebrew" duration="0">
-        <p><a href="https://brew.sh" target="_blank">Homebrew</a>, a package manager for Mac, is another way to install Python. This approach is preferred by users who want to install Python from the command line. However, it requires Homebrew to be already up and running on your Mac.</p>
-<ol type="1">
-<li>Open terminal.</li>
-<li>Update Homebrew</li>
-</ol>
-<pre><code language="language-bash" class="language-bash">$ brew update
-</code></pre>
-<ol type="1" start="3">
-<li>Execute install command for Python. This should install Python in your machine without problem.</li>
-</ol>
-<pre><code language="language-bash" class="language-bash">$ brew install python
-</code></pre>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Verify Python is Installed" duration="0">
-        <p>There are various ways to verify if Python was successfully installed in your Mac machine.</p>
-<p>You can use the terminal command <code>which</code>, where it will print the <code>path</code> of Python in your machine:</p>
-<pre><code language="language-bash" class="language-bash">$ which python
-# prints the following
-$ /usr/local/bin/python
-</code></pre>
-<p>You can also execute the command to check the version of Python installed in your machine.</p>
+        <p>There are various ways to verify if Python was successfully installed in your <code>Windows</code> machine.</p>
+<p>Open Windows control panel, Python should be listed as installed software.</p>
+<p class="image-container"><img src="img/8b6e3c9224eb29fe.png"></p>
+<p>You can also execute the command to check the version of Python installed in your machine using <code>PowerShell</code> or <code>Command Prompt</code>.</p>
 <pre><code language="language-bash" class="language-bash">$ python --version
 # prints the following
 Python 3.10.0
