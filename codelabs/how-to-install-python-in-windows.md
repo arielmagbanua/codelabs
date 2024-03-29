@@ -11,7 +11,7 @@ authors: Ariel
 ## Overview
 
 ### What You Will Learn 
-  * How to install python in Windows.
+- How to install python in Windows.
 
 <!-- ------------------------ -->
 ## How to Install Python in Mac Using the PK Installer.
@@ -20,59 +20,31 @@ This is probably the easiest way to install python in your Mac computer. To inst
 
 1. Visit the [downloads](https://www.python.org/downloads/) page of Python.
 2. Download the latest (or your desired) version of Python.
-3. Open the downloaded `.pk` file and a dialog box will appear like below.
+3. Open the downloaded `.exe` file and a dialog box will appear like below.
   <p align="center">
-    <img src="assets/install.webp" />
+    <img src="assets/install-py-windows.png" />
   </p>
-4. Read the important information (Read Me) and continue to the next step.
+4. Tick the `Add python.exe to PATH` and then click the `Install Now` option.
+5. A dialog prompt will appear, then click `Yes` to proceed with the installation progress.
   <p align="center">
-    <img src="assets/readme.png" />
+    <img src="assets/install-progress.png" />
   </p>
-5. Understand the license and click continue.
+6. After few seconds, you will be notified if the setup is successful. Click `close` to close the dialog.
   <p align="center">
-    <img src="assets/license.png" />
+    <img src="assets/setup-successful.png" />
   </p>
-6. Click on agree if you agree with the agreement and conditions.
-  <p align="center">
-    <img src="assets/agreement.png" />
-  </p>
-7. Select the destination where you would like to install Python. It is recommended to use the default install destination.
-  <p align="center">
-    <img src="assets/destination.png" />
-  </p>
-8. Installation will commence, and you will get the message below once done.
-  <p align="center">
-    <img src="assets/installdone.png" />
-  </p>
-
-<!-- ------------------------ -->
-## How to install python with Homebrew
-
-[Homebrew](https://brew.sh), a package manager for Mac, is another way to install Python. This approach is preferred by users who want to install Python from the command line. However, it requires Homebrew to be already up and running on your Mac.
-
-1. Open terminal.
-2. Update Homebrew
-```bash
-$ brew update
-```
-3. Execute install command for Python. This should install Python in your machine without problem.
-```bash
-$ brew install python
-```
 
 <!-- ------------------------ -->
 ## Verify Python is Installed
 
-There are various ways to verify if Python was successfully installed in your Mac machine.
+There are various ways to verify if Python was successfully installed in your `Windows` machine.
 
-You can use the terminal command `which`, where it will print the `path` of Python in your machine:
-```bash
-$ which python
-# prints the following
-$ /usr/local/bin/python
-```
+Open Windows control panel, Python should be listed as installed software.
+<p align="center">
+  <img src="assets/control-panel-python.png" />
+</p>
 
-You can also execute the command to check the version of Python installed in your machine.
+You can also execute the command to check the version of Python installed in your machine using `PowerShell` or `Command Prompt`.
 ```bash
 $ python --version
 # prints the following

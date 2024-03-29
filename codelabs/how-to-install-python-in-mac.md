@@ -64,7 +64,7 @@ $ brew install python
 <!-- ------------------------ -->
 ## Verify Python is Installed
 
-There are various ways to verify if Python was successfully installed in your Mac machine.
+There are various ways to verify if Python was successfully installed in your `Mac` machine.
 
 You can use the terminal command `which`, where it will print the `path` of Python in your machine:
 ```bash
@@ -73,7 +73,7 @@ $ which python
 $ /usr/local/bin/python
 ```
 
-You can also execute the command to check the version of Python installed in your machine.
+You can also execute the command to check the version of Python installed in your machine using the terminal.
 ```bash
 $ python --version
 # prints the following
