@@ -44,6 +44,7 @@ $color-tensorflow-orange: #ed8e24;
 $color-unity-grey: #222c37;
 $color-weave-green: #0f9d58;
 $color-python-blue: #5a9fd4;
+$color-safety-blue: #3d5afe;
 
 /* Mixins */
 
@@ -263,3 +264,5 @@ $color-python-blue: #5a9fd4;
 @include codelab-card(['web'],$color-google-blue, 'web.svg');
 
 @include codelab-card(['python'], $color-python-blue, 'python.svg');
+
+@include codelab-card(['terms-privacy'], $color-safety-blue, 'safety-svgrepo-com.svg');
