@@ -35,17 +35,17 @@ This is probably the easiest way to install python in your Mac computer. To inst
   ![Installation Done](assets/installdone.png)
 
 <!-- ------------------------ -->
-## How to install python with Homebrew
+## How to Install Python with Homebrew
 
 [Homebrew](https://brew.sh), a package manager for Mac, is another way to install Python. This approach is preferred by users who want to install Python from the command line. However, it requires Homebrew to be already up and running on your Mac.
 
-1. Open terminal.
+1. Open terminal
 2. Update Homebrew
-```bash
+```shell
 $ brew update
 ```
 3. Execute install command for Python. This should install Python in your machine without problem.
-```bash
+```shell
 $ brew install python
 ```
 
@@ -55,14 +55,14 @@ $ brew install python
 There are various ways to verify if Python was successfully installed in your `Mac` machine.
 
 You can use the terminal command `which`, where it will print the `path` of Python in your machine:
-```bash
+```shell
 $ which python
 # prints the following
 $ /usr/local/bin/python
 ```
 
 You can also execute the command to check the version of Python installed in your machine using the terminal.
-```bash
+```shell
 $ python --version
 # prints the following
 Python 3.10.0

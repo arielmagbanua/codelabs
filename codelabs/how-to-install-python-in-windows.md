@@ -34,12 +34,10 @@ This is probably the easiest way to install python in your Mac computer. To inst
 There are various ways to verify if Python was successfully installed in your `Windows` machine.
 
 Open Windows control panel, Python should be listed as installed software.
-<p align="center">
-  <img src="assets/control-panel-python.png" />
-</p>
+![Control Panel](assets/control-panel-python.png)
 
 You can also execute the command to check the version of Python installed in your machine using `PowerShell` or `Command Prompt`.
-```bash
+```shell
 $ python --version
 # prints the following
 Python 3.10.0
