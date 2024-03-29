@@ -3,13 +3,13 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2024-03-29T16:18:58+08:00",
-  "id": "how-to-install-python-in-mac",
+  "updated": "2024-03-29T16:19:04+08:00",
+  "id": "how-to-install-python-in-windows",
   "duration": 0,
-  "title": "How to Install Python in Mac",
+  "title": "How to Install Python in Windows",
   "authors": "Ariel",
-  "summary": "How to Install Python in Mac",
-  "source": "how-to-install-python-in-mac.md",
+  "summary": "How to Install Python in Windows",
+  "source": "how-to-install-python-in-windows.md",
   "theme": "",
   "status": [
     "published"
@@ -20,5 +20,5 @@
   "tags": [
     "python"
   ],
-  "url": "how-to-install-python-in-mac"
+  "url": "how-to-install-python-in-windows"
 }
