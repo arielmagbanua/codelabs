@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-03-29T22:44:19+08:00",
+  "id": "getting-started-with-firebase",
+  "duration": 19,
+  "title": "Getting Started with Firebase",
+  "authors": "Ariel",
+  "summary": "Getting Started with Firebase",
+  "source": "create-firebase-project.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "firebase"
+  ],
+  "tags": [
+    "firebase"
+  ],
+  "url": "getting-started-with-firebase"
+}
