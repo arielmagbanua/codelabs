@@ -20,18 +20,31 @@ authors: Ariel
 This is probably the easiest way to install python in your Mac computer. To install python, do the following steps:
 
 1. Visit the [downloads](https://www.python.org/downloads/) page of Python.
+
 2. Download the latest (or your desired) version of Python.
+
 3. Open the downloaded `.pk` file and a dialog box will appear like below.
+
   ![Installation Dialog](assets/install.webp)
+
 4. Read the important information (Read Me) and continue to the next step.
+
   ![Important Information](assets/readme.png)
+
 5. Understand the license and click continue.
+
   ![License](assets/license.png)
+
 6. Click on agree if you agree with the agreement and conditions.
+
   ![Agreement and Conditions](assets/agreement.png)
+
 7. Select the destination where you would like to install Python. It is recommended to use the default install destination.
+
   ![Install Destination](assets/destination.png)
+
 8. Installation will commence, and you will get the message below once done.
+
   ![Installation Done](assets/installdone.png)
 
 <!-- ------------------------ -->

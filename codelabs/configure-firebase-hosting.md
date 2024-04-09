@@ -1,17 +1,24 @@
-summary: How to Install Python in Windows
-id: how-to-install-python-in-windows
-categories: Python
-tags: python
+summary: Configure Firebase Hosting
+id: configure-firebase-hosting
+categories: Firebase
+tags: firebase
 status: Published
 authors: Ariel
 
-# How to Install Python in Windows
+# Configure Firebase Hosting
 
 <!-- ------------------------ -->
 ## Overview
 
-### What You Will Learn 
-- How to install python in Windows.
+Firebase Hosting provides fast and secure hosting for your web app, static and dynamic content, and microservices. With a single command, you can quickly deploy web apps and serve both static and dynamic content to a global CDN (content delivery network).
+
+### What You Will Learn
+- How to configure firebase hosting.
+
+<!-- ------------------------ -->
+## Example Web App
+
+
 
 <!-- ------------------------ -->
 ## How to Install Python in Mac Using the PK Installer.
