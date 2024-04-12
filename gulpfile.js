@@ -155,6 +155,7 @@ gulp.task('build:html', () => {
     'app/browserconfig.xml',
     'app/robots.txt',
     'app/site.webmanifest',
+    'app/ads.txt'
   ]
   streams.push(gulp.src(otherSrcs, { base: 'app/' })
     .pipe(gulp.dest('build'))
