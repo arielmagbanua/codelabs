@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-04-09T22:28:31+08:00",
+  "id": "configure-firebase-hosting",
+  "duration": 0,
+  "title": "Configure Firebase Hosting",
+  "authors": "Ariel",
+  "summary": "Configure Firebase Hosting",
+  "source": "configure-firebase-hosting.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "firebase"
+  ],
+  "tags": [
+    "firebase"
+  ],
+  "url": "configure-firebase-hosting"
+}

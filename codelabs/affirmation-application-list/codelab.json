@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2025-01-15T19:10:43+08:00",
+  "id": "affirmation-application-list",
+  "duration": 80,
+  "title": "Affirmation List Application",
+  "authors": "Ariel",
+  "summary": "Affirmation List Application",
+  "source": "affirmation-list-app.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "android"
+  ],
+  "tags": [
+    "android"
+  ],
+  "url": "affirmation-application-list"
+}

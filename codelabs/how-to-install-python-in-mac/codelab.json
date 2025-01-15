@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2024-04-09T22:28:31+08:00",
+  "id": "how-to-install-python-in-mac",
+  "duration": 0,
+  "title": "How to Install Python in Mac",
+  "authors": "Ariel",
+  "summary": "How to Install Python in Mac",
+  "source": "how-to-install-python-in-mac.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "python"
+  ],
+  "tags": [
+    "python"
+  ],
+  "url": "how-to-install-python-in-mac"
+}
