@@ -142,6 +142,7 @@ app/js/bundle
 
 /build/
 /dist/
+/dist/
 
 .yarn/install-state.gz
 .pnp.*
