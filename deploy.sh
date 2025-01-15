@@ -17,3 +17,6 @@ npm install -g firebase-tools
 
 # deploy the project
 firebase deploy --only hosting
+
+nvm use 14 && node -v
+
