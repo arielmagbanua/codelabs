@@ -1,0 +1,208 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Course List Application</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="course-list-application"
+                  title="Course List Application"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Application Overview" duration="5">
+        <p>This exercise focuses on creating the components necessary to build a scrollable list. The material expands upon what you learned in the <a href="https://mycodelabs.xyz/codelabs/affirmation-application-list/index.html?index=..%2F..index#0" target="_blank">Affirmation List Application</a> codelab, and allows you to apply that knowledge to build a scrollable grid.</p>
+<p>Some sections might require you to use composables or modifiers, which you may not have seen before. In such cases, see the References available for each problem, where you can find links to documentation related to the modifiers, properties, or composables that you are not familiar with. You can read the documentation and determine how to incorporate the concepts in the app. The ability to understand documentation is an essential skill that you should develop to grow your knowledge.</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Complete the Android Basics in Compose coursework through the <a href="https://mycodelabs.xyz/codelabs/affirmation-application-list/index.html?index=..%2F..index#0" target="_blank">Affirmation List Application</a> codelab.</li>
+</ul>
+<h2 is-upgraded>What You&#39;ll Build</h2>
+<p>In these practice problems, you will build out the Courses app from scratch. The Courses app displays a list of course topics.</p>
+<p>The practice problems are split into sections, where you will build:</p>
+<ul>
+<li>A course topic data class:</li>
+</ul>
+<p>The topic data will have an image, a name, and the number of associated courses in that topic.</p>
+<ul>
+<li>A composable to represent a course topic grid item:</li>
+</ul>
+<p>Each topic item will display the image, the name, the number of associated courses, and a decorative icon.</p>
+<ul>
+<li>A composable to display a grid of those course topic items.</li>
+</ul>
+<p>The final app will look like this: cour</p>
+<p class="image-container"><img alt="Courses" src="img/26fb33ab5d747e8.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create Project" duration="5">
+        <p>Create a New Project with the Empty Activity template and a minimum SDK of 35.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Topic Data Class" duration="5">
+        <p>In this section, you build a class to hold the data for each course topic.</p>
+<p>Take a look at the items from the final app.</p>
+<p class="image-container"><img alt="Topic" src="img/abd239fc168a6be.png"></p>
+<p>Each course topic holds three pieces of unique information. Using the unique content of each item as a reference, create a class to hold this data.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Data Source" duration="10">
+        <p>In this section, you create a data set for the grid of courses.</p>
+<p>Copy the following items into <strong>app/src/main/res/values/strings.xml</strong>:</p>
+<pre><code language="language-xml" class="language-xml">&lt;resources&gt;
+  &lt;string name=&#34;architecture&#34;&gt;Architecture&lt;/string&gt;
+  &lt;string name=&#34;crafts&#34;&gt;Crafts&lt;/string&gt;
+  &lt;string name=&#34;business&#34;&gt;Business&lt;/string&gt;
+  &lt;string name=&#34;culinary&#34;&gt;Culinary&lt;/string&gt;
+  &lt;string name=&#34;design&#34;&gt;Design&lt;/string&gt;
+  &lt;string name=&#34;fashion&#34;&gt;Fashion&lt;/string&gt;
+  &lt;string name=&#34;film&#34;&gt;Film&lt;/string&gt;
+  &lt;string name=&#34;gaming&#34;&gt;Gaming&lt;/string&gt;
+  &lt;string name=&#34;drawing&#34;&gt;Drawing&lt;/string&gt;
+  &lt;string name=&#34;lifestyle&#34;&gt;Lifestyle&lt;/string&gt;
+  &lt;string name=&#34;music&#34;&gt;Music&lt;/string&gt;
+  &lt;string name=&#34;painting&#34;&gt;Painting&lt;/string&gt;
+  &lt;string name=&#34;photography&#34;&gt;Photography&lt;/string&gt;
+  &lt;string name=&#34;tech&#34;&gt;Tech&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+<p>Provide your own images for each course and import them as drawable in your project then create an empty file called <strong>DataSource.kt</strong>. Copy the following code into the file:</p>
+<pre><code language="language-kotlin" class="language-kotlin">object DataSource {
+    val topics = listOf(
+        Topic(R.string.architecture, 58, R.drawable.architecture),
+        Topic(R.string.crafts, 121, R.drawable.crafts),
+        Topic(R.string.business, 78, R.drawable.business),
+        Topic(R.string.culinary, 118, R.drawable.culinary),
+        Topic(R.string.design, 423, R.drawable.design),
+        Topic(R.string.fashion, 92, R.drawable.fashion),
+        Topic(R.string.film, 165, R.drawable.film),
+        Topic(R.string.gaming, 164, R.drawable.gaming),
+        Topic(R.string.drawing, 326, R.drawable.drawing),
+        Topic(R.string.lifestyle, 305, R.drawable.lifestyle),
+        Topic(R.string.music, 212, R.drawable.music),
+        Topic(R.string.painting, 172, R.drawable.painting),
+        Topic(R.string.photography, 321, R.drawable.photography),
+        Topic(R.string.tech, 118, R.drawable.tech)
+    )
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Topic Grid Item" duration="20">
+        <p>Create a composable to represent a topic grid item.</p>
+<h2 is-upgraded>Final Screenshot</h2>
+<p>After you finish the implementation, your topic item layout should match the screenshot below:</p>
+<p class="image-container"><img alt="Grid Item Final" src="img/a761e8d21426b989.png"></p>
+<h2 is-upgraded>UI Specifications</h2>
+<p>Use the following UI specifications:</p>
+<p class="image-container"><img alt="Grid Item Dimensions" src="img/c87ba2b0614dced2.png"></p>
+<p class="image-container"><img alt="Grid Item Labels" src="img/7a73fc842a4fbbe1.png"></p>
+<h2 is-upgraded>Text Styling</h2>
+<p>You can use text <a href="https://developer.android.com/develop/ui/compose/designsystems/material#text-styles" target="_blank">styling property</a> of the Text composable.</p>
+<pre><code language="language-kotlin" class="language-kotlin">Text(
+    text = &#34;Subtitle2 styled&#34;,
+    // use the text style from the theme typography
+    style = MaterialTheme.typography.subtitle2
+)
+</code></pre>
+<p><strong>Hint</strong>: Which composable arranges its children vertically and which arranges its children horizontally?</p>
+<h2 is-upgraded>Adding Image Composable Using Painter Resource</h2>
+<pre><code language="language-kotlin" class="language-kotlin">Image(
+  painter = painter,
+  contentDescription = &#34;Sample Image&#34;,
+  modifier = Modifier.align(Alignment.Center)
+)
+</code></pre>
+<h2 is-upgraded>References</h2>
+<ul>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/material/Typography" target="_blank">Typography</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/layouts/basics#standard-layouts" target="_blank">Standard layout components</a></li>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Box(androidx.compose.ui.Modifier)" target="_blank"><strong>Box</strong></a> layout</li>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Column(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,kotlin.Function1)" target="_blank"><strong>Column</strong></a> layout</li>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#Row(androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1)" target="_blank"><strong>Row</strong></a> layout</li>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.ui.Modifier).aspectRatio(kotlin.Float,kotlin.Boolean)" target="_blank"><strong>aspectRatio</strong></a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/resources#vector-assets" target="_blank"><strong>painterResource</strong></a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Courses Grid" duration="20">
+        <p>Once the topic grid item is created, it can be used to make a grid of course topics.</p>
+<p>In this exercise, you use your grid item composable to make a grid with two columns.</p>
+<h2 is-upgraded>Final Screenshot</h2>
+<p>After you finish the implementation, your design should match the screenshot below:</p>
+<p class="image-container"><img alt="Courses" src="img/26fb33ab5d747e8.png"></p>
+<h2 is-upgraded>UI Specification</h2>
+<p>Use the following UI specifications:</p>
+<p class="image-container"><img alt="Course Specs" src="img/7d3e3cb538a821b0.png"></p>
+<h2 is-upgraded>Grid Composable Examples</h2>
+<p><code>LazyVerticalGrid</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">LazyVerticalGrid(
+  columns = GridCells.Fixed(3), // 3 items per column
+  modifier = Modifier.fillMaxSize().padding(8.dp)
+) {
+  // Generate items
+  items(30) { index -&gt;
+    Text(item.toString()) // your grid item
+  }
+}
+</code></pre>
+<p><code>LazyHorizontalGrid</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">LazyHorizontalGrid(
+  rows = GridCells.Fixed(3), // 3 items per row horizontally
+  modifier = Modifier.fillMaxSize().padding(8.dp)
+) {
+  // Generate items
+  items(20) { item -&gt;
+    Text(item.toString()) // your grid item composable
+  }
+}
+</code></pre>
+<h2 is-upgraded>References</h2>
+<ul>
+<li><a href="https://developer.android.com/develop/ui/compose/lists#grids" target="_blank">Lists and grids</a></li>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Fixed" target="_blank">Fixed grid cells</a></li>
+<li><a href="https://developer.android.com/develop/ui/compose/lists#content-spacing" target="_blank">Lists: Content spacing</a></li>
+<li><a href="https://mycodelabs.xyz/codelabs/affirmation-application-list/index.html?index=..%2F..index#0" target="_blank">Codelab: Affirmation List Application</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

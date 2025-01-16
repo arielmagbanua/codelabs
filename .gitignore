@@ -140,9 +140,9 @@ app/bower_components/jszip/lib
 app/bower_components/jszip/vendor
 app/js/bundle
 
-/build/
-/dist/
-/dist/
+build
+dist
+site
 
 gae
 
