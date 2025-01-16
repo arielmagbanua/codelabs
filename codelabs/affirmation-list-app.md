@@ -56,9 +56,9 @@ In Android apps, lists are made up of list items. For single pieces of data, thi
 
 Create a new package under **com.example.lastname**. Name the new package models. The models package will contain the data model that will be represented by a data class. The data class will be comprised of properties that represent the information relevant to what will be an "Affirmation," which will consist of a string resource and an image resource. Packages are directories that contain classes and even other directories.
 
-![Create Package](assets/package1.png)
+![Create Package](assets/create_package.png)
 
-![Package Name](assets/package2.png)
+![Package Name](assets/package_name.png)
 
 ### Create Affirmation Data Class
 
