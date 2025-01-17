@@ -1,11 +1,11 @@
-summary: Affirmation List Application
-id: affirmation-application-list
+summary: Affirmation List App
+id: affirmation-list-app
 categories: Android
 tags: android
 status: Published
 authors: Ariel
 
-# Affirmation List Application
+# Affirmation List App
 
 <!-- ------------------------ -->
 
@@ -62,7 +62,7 @@ Create a new package under **com.example.lastname**. Name the new package models
 
 ### Create Affirmation Data Class
 
-Create a new class in the **com.example.affirmations.models** package. Name the new class **Affirmation** and make it a **Data** class. Each **Affirmation** consists of one image and one string. Create two val properties in the Affirmation data class. One should be called stringResourceId and the other imageResourceId. They should both be integers.
+Create a new class in the **com.example.lastname.affirmations.models** package. Name the new class **Affirmation** and make it a **Data** class. Each **Affirmation** consists of one image and one string. Create two val properties in the Affirmation data class. One should be called stringResourceId and the other imageResourceId. They should both be integers.
 
 ```kotlin
 data class Affirmation(
@@ -97,11 +97,11 @@ Create your own 10 string resources for each **Affirmation** in the **strings** 
 
 At this point you should already familiar with adding images or **importing drawables** in your android project. If not, then review your dice roller application work as a reference on how to import your images as drawables. Choose 10 images that will represent or an inspiration for each affirmation and import them as _image1_ - _image10_.
 
-Create the package **com.example.affirmations.data** and then create a class named **Datasource**. This class must have **loadAffirmations** which returns a list of **Affirmation data class object**. Provide the string resource id and drawable resource id for each Affirmation in the list.
+Create the package **com.example.lastname.affirmations.data** and then create a class named **Datasource**. This class must have **loadAffirmations** which returns a list of **Affirmation data class object**. Provide the string resource id and drawable resource id for each Affirmation in the list.
 
 ```kotlin
-import com.example.affirmations.R
-import com.example.affirmations.model.Affirmation
+import com.example.lastname.affirmations.R
+import com.example.lastname.affirmations.model.Affirmation
 
 class Datasource() {
     fun loadAffirmations(): List<Affirmation> {
@@ -158,7 +158,7 @@ fun AffirmationCard() {
 `MainActivity.kt`
 
 ```kotlin
-import com.example.affirmations.model.Affirmation
+import com.example.lastname.affirmations.model.Affirmation
 
 @Composable
 fun AffirmationCard(affirmation: Affirmation) {
@@ -422,7 +422,7 @@ fun AffirmationList(affirmationList: List<Affirmation>, modifier: Modifier = Mod
 `MainActivity.kt`
 
 ```kotlin
-import com.example.affirmations.data.Datasource
+import com.example.lastname.affirmations.data.Datasource
 
 @Composable
 fun AffirmationsApp() {
@@ -435,7 +435,7 @@ fun AffirmationsApp() {
 `MainActivity.kt`
 
 ```kotlin
-import com.example.affirmations.data.Datasource
+import com.example.lastname.affirmations.data.Datasource
 
 @Composable
 fun AffirmationsApp() {
@@ -450,7 +450,7 @@ fun AffirmationsApp() {
 `MainActivity.kt`
 
 ```kotlin
-import com.example.affirmations.data.Datasource
+import com.example.lastname.affirmations.data.Datasource
 
 @Composable
 fun AffirmationsApp() {
@@ -477,7 +477,7 @@ fun AffirmationsApp() {
 `MainActivity.kt`
 
 ```kotlin
-import com.example.affirmations.data.Datasource
+import com.example.lastname.affirmations.data.Datasource
 
 @Composable
 fun AffirmationsApp() {

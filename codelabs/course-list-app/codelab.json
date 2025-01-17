@@ -3,12 +3,12 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2025-01-16T15:02:21+08:00",
-  "id": "course-list-application",
+  "updated": "2025-01-17T14:18:29+08:00",
+  "id": "course-list-app",
   "duration": 65,
-  "title": "Course List Application",
+  "title": "Course List App",
   "authors": "Ariel",
-  "summary": "Course List Application",
+  "summary": "Course List App",
   "source": "course-list-app.md",
   "theme": "",
   "status": [
@@ -20,5 +20,5 @@
   "tags": [
     "android"
   ],
-  "url": "course-list-application"
+  "url": "course-list-app"
 }

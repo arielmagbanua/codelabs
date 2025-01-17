@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
-  <title>Affirmation List Application</title>
+  <title>Affirmation List App</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
@@ -23,8 +23,8 @@
   <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
   <google-codelab codelab-gaid=""
                   codelab-ga4id=""
-                  id="affirmation-application-list"
-                  title="Affirmation List Application"
+                  id="affirmation-list-app"
+                  title="Affirmation List App"
                   environment="web"
                   feedback-link="">
     
@@ -66,7 +66,7 @@
 <p class="image-container"><img alt="Create Package" src="img/e74fea509c2175aa.png"></p>
 <p class="image-container"><img alt="Package Name" src="img/d0fee6c53b4d834.png"></p>
 <h2 is-upgraded>Create Affirmation Data Class</h2>
-<p>Create a new class in the <strong>com.example.affirmations.models</strong> package. Name the new class <strong>Affirmation</strong> and make it a <strong>Data</strong> class. Each <strong>Affirmation</strong> consists of one image and one string. Create two val properties in the Affirmation data class. One should be called stringResourceId and the other imageResourceId. They should both be integers.</p>
+<p>Create a new class in the <strong>com.example.lastname.affirmations.models</strong> package. Name the new class <strong>Affirmation</strong> and make it a <strong>Data</strong> class. Each <strong>Affirmation</strong> consists of one image and one string. Create two val properties in the Affirmation data class. One should be called stringResourceId and the other imageResourceId. They should both be integers.</p>
 <pre><code language="language-kotlin" class="language-kotlin">data class Affirmation(
     val stringResourceId: Int,
     val imageResourceId: Int
@@ -91,9 +91,9 @@ data class Affirmation(
 &lt;/resources&gt;
 </code></pre>
 <p>At this point you should already familiar with adding images or <strong>importing drawables</strong> in your android project. If not, then review your dice roller application work as a reference on how to import your images as drawables. Choose 10 images that will represent or an inspiration for each affirmation and import them as <em>image1</em> - <em>image10</em>.</p>
-<p>Create the package <strong>com.example.affirmations.data</strong> and then create a class named <strong>Datasource</strong>. This class must have <strong>loadAffirmations</strong> which returns a list of <strong>Affirmation data class object</strong>. Provide the string resource id and drawable resource id for each Affirmation in the list.</p>
-<pre><code language="language-kotlin" class="language-kotlin">import com.example.affirmations.R
-import com.example.affirmations.model.Affirmation
+<p>Create the package <strong>com.example.lastname.affirmations.data</strong> and then create a class named <strong>Datasource</strong>. This class must have <strong>loadAffirmations</strong> which returns a list of <strong>Affirmation data class object</strong>. Provide the string resource id and drawable resource id for each Affirmation in the list.</p>
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.R
+import com.example.lastname.affirmations.model.Affirmation
 
 class Datasource() {
     fun loadAffirmations(): List&lt;Affirmation&gt; {
@@ -140,7 +140,7 @@ fun AffirmationCard() {
 <li>Edit the method signature to take an <strong>Affirmation</strong> object as a parameter. The <strong>Affirmation</strong> object comes from the <strong>model</strong> package.</li>
 </ol>
 <p><code>MainActivity.kt</code></p>
-<pre><code language="language-kotlin" class="language-kotlin">import com.example.affirmations.model.Affirmation
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.model.Affirmation
 
 @Composable
 fun AffirmationCard(affirmation: Affirmation) {
@@ -369,7 +369,7 @@ fun AffirmationList(affirmationList: List&lt;Affirmation&gt;, modifier: Modifier
 <li>In the <strong>AffirmationsApp</strong> composable, retrieve the current layout directions and save them in a variable. These will be used to configure the padding later.</li>
 </ol>
 <p><code>MainActivity.kt</code></p>
-<pre><code language="language-kotlin" class="language-kotlin">import com.example.affirmations.data.Datasource
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.data.Datasource
 
 @Composable
 fun AffirmationsApp() {
@@ -380,7 +380,7 @@ fun AffirmationsApp() {
 <li>Now create a Surface composable. This composable will set the padding for the AffirmationsList composable.</li>
 </ol>
 <p><code>MainActivity.kt</code></p>
-<pre><code language="language-kotlin" class="language-kotlin">import com.example.affirmations.data.Datasource
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.data.Datasource
 
 @Composable
 fun AffirmationsApp() {
@@ -393,7 +393,7 @@ fun AffirmationsApp() {
 <li>Pass a <strong>Modifier</strong> to the <strong>Surface</strong> composable that fills the max width and height of its parent, sets status bar padding, and sets the start and end padding to the <strong>layoutDirection</strong>. Here&#39;s an example of how to translate a **LayoutDirection object into padding: **WindowInsets.safeDrawing.asPaddingValues().calculateStartPadding(layoutDirection)**.</li>
 </ol>
 <p><code>MainActivity.kt</code></p>
-<pre><code language="language-kotlin" class="language-kotlin">import com.example.affirmations.data.Datasource
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.data.Datasource
 
 @Composable
 fun AffirmationsApp() {
@@ -417,7 +417,7 @@ fun AffirmationsApp() {
 </ol>
 <p>Note: The <strong>DataSource</strong> class is found in the <strong>data</strong> package.</p>
 <p><code>MainActivity.kt</code></p>
-<pre><code language="language-kotlin" class="language-kotlin">import com.example.affirmations.data.Datasource
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.data.Datasource
 
 @Composable
 fun AffirmationsApp() {

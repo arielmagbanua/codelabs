@@ -1,11 +1,11 @@
-summary: Course List Application
-id: course-list-application
+summary: Course List App
+id: course-list-app
 categories: Android
 tags: android
 status: Published
 authors: Ariel
 
-# Course List Application
+# Course List App
 
 <!-- ------------------------ -->
 
@@ -48,7 +48,7 @@ cour
 
 Duration: 5
 
-Create a New Project with the Empty Activity template and a minimum SDK of 35.
+Create a New Project with the Empty Activity template and use your last name as part of the package name (_**com.example.yourlastname**_).
 
 <!-- ------------------------ -->
 
