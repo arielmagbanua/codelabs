@@ -140,8 +140,11 @@ app/bower_components/jszip/lib
 app/bower_components/jszip/vendor
 app/js/bundle
 
-/build/
-/dist/
+build
+dist
+site
+
+gae
 
 .yarn/install-state.gz
 .pnp.*

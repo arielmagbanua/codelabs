@@ -1,0 +1,24 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2025-01-17T14:18:29+08:00",
+  "id": "course-list-app",
+  "duration": 65,
+  "title": "Course List App",
+  "authors": "Ariel",
+  "summary": "Course List App",
+  "source": "course-list-app.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "android"
+  ],
+  "tags": [
+    "android"
+  ],
+  "url": "course-list-app"
+}

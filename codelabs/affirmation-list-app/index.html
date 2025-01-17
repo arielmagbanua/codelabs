@@ -1,0 +1,470 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Affirmation List App</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="affirmation-list-app"
+                  title="Affirmation List App"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Application Overview" duration="5">
+        <p>In this homework, you learn how to make a scrollable list in your app using Jetpack Compose. You will be working with the Affirmations app, which displays a list of affirmations paired with beautiful images to bring positivity to your day!</p>
+<h2 is-upgraded>Prerequisites</h2>
+<ul>
+<li>Familiarity with lists in Kotlin</li>
+<li>Experience building layouts with Jetpack Compose</li>
+<li>Experience running apps on a device or emulator</li>
+</ul>
+<p class="image-container"><img alt="Affirmation List Application" src="img/116bf7c32ff797d8.png"></p>
+<h2 is-upgraded>Starter Code</h2>
+<pre><code language="language-kotlin" class="language-kotlin">class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            AffirmationsTheme {
+                // A surface container using the &#39;background&#39; color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    AffirmationsApp()
+                }
+            }
+        }
+    }
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Data Class For Affirmation" duration="30">
+        <h2 is-upgraded>Create Models Package</h2>
+<p>In Android apps, lists are made up of list items. For single pieces of data, this could be something simple like a string or an integer. For list items that have multiple pieces of data, like an image and text, you will need a class that contains all of these properties. Data classes are a type of class that only contain properties, they can provide some utility methods to work with those properties.</p>
+<p>Create a new package under <strong>com.example.lastname</strong>. Name the new package models. The models package will contain the data model that will be represented by a data class. The data class will be comprised of properties that represent the information relevant to what will be an &#34;Affirmation,&#34; which will consist of a string resource and an image resource. Packages are directories that contain classes and even other directories.</p>
+<p class="image-container"><img alt="Create Package" src="img/e74fea509c2175aa.png"></p>
+<p class="image-container"><img alt="Package Name" src="img/d0fee6c53b4d834.png"></p>
+<h2 is-upgraded>Create Affirmation Data Class</h2>
+<p>Create a new class in the <strong>com.example.lastname.affirmations.models</strong> package. Name the new class <strong>Affirmation</strong> and make it a <strong>Data</strong> class. Each <strong>Affirmation</strong> consists of one image and one string. Create two val properties in the Affirmation data class. One should be called stringResourceId and the other imageResourceId. They should both be integers.</p>
+<pre><code language="language-kotlin" class="language-kotlin">data class Affirmation(
+    val stringResourceId: Int,
+    val imageResourceId: Int
+)
+</code></pre>
+<p>Annotate the <strong>stringResourceId</strong> property with the <strong>@StringRes</strong> annotation and annotate the <strong>imageResourceId</strong> with the <strong>@DrawableRes</strong> annotation. The stringResourceId represents an ID for the affirmation text stored in a string resource. The imageResourceId represents an ID for the affirmation image stored in a drawable resource.</p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+
+data class Affirmation(
+    @StringRes val stringResourceId: Int,
+    @DrawableRes val imageResourceId: Int
+)
+</code></pre>
+<p>Create your own 10 string resources for each <strong>Affirmation</strong> in the <strong>strings</strong> resource.</p>
+<pre><code language="language-xml" class="language-xml">&lt;resources&gt;
+    &lt;string name=&#34;app_name&#34;&gt;Affirmations&lt;/string&gt;
+
+    &lt;string name=&#34;affirmation1&#34;&gt;I am strong&lt;/string&gt;
+    &lt;string name=&#34;affirmation2&#34;&gt;I believe in myself&lt;/string&gt;
+    &lt;string name=&#34;affirmation3&#34;&gt;Each day is a new opportunity to grow and be a better version of myself&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+<p>At this point you should already familiar with adding images or <strong>importing drawables</strong> in your android project. If not, then review your dice roller application work as a reference on how to import your images as drawables. Choose 10 images that will represent or an inspiration for each affirmation and import them as <em>image1</em> - <em>image10</em>.</p>
+<p>Create the package <strong>com.example.lastname.affirmations.data</strong> and then create a class named <strong>Datasource</strong>. This class must have <strong>loadAffirmations</strong> which returns a list of <strong>Affirmation data class object</strong>. Provide the string resource id and drawable resource id for each Affirmation in the list.</p>
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.R
+import com.example.lastname.affirmations.model.Affirmation
+
+class Datasource() {
+    fun loadAffirmations(): List&lt;Affirmation&gt; {
+        return listOf&lt;Affirmation&gt;(
+            Affirmation(R.string.affirmation1, R.drawable.image1),
+            Affirmation(R.string.affirmation2, R.drawable.image2),
+            Affirmation(R.string.affirmation3, R.drawable.image3),
+            Affirmation(R.string.affirmation4, R.drawable.image4),
+            Affirmation(R.string.affirmation5, R.drawable.image5),
+            Affirmation(R.string.affirmation6, R.drawable.image6),
+            Affirmation(R.string.affirmation7, R.drawable.image7),
+            Affirmation(R.string.affirmation8, R.drawable.image8),
+            Affirmation(R.string.affirmation9, R.drawable.image9),
+            Affirmation(R.string.affirmation10, R.drawable.image10)
+        )
+    }
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Add a List to Your Application" duration="45">
+        <h2 is-upgraded>Create a List item card</h2>
+<p>This app is meant to display a list of affirmations. The first step in configuring the UI to display a list is to create a list item. Each affirmation item consists of an image and a string. The data for each of these items comes with the starter code, and you will create the UI component to display such an item.</p>
+<p>The item will be comprised of a <strong>Card</strong> composable, containing an <strong>Image</strong> and a <strong>Text</strong> composable. In Compose, a <strong>Card</strong> is a surface that displays content and actions in a single container. The Affirmation card will look like this in the preview:</p>
+<p class="image-container"><img alt="I am strong" src="img/38c088720a5fa263.png"></p>
+<p>The card shows an image with some text beneath it. This vertical layout can be achieved using a Column composable wrapped in a <strong>Card</strong> composable. You can give it a try on your own, or follow the steps below to achieve this.</p>
+<ol type="1">
+<li>Open the <strong>MainActivity.kt</strong> file.</li>
+<li>Create a new method beneath the <strong>AffirmationsApp()</strong> method, called <strong>AffirmationCard()</strong>, and annotate it with the @Composable annotation.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun AffirmationsApp() {
+}
+
+@Composable
+fun AffirmationCard() {
+
+}
+</code></pre>
+<ol type="1" start="3">
+<li>Edit the method signature to take an <strong>Affirmation</strong> object as a parameter. The <strong>Affirmation</strong> object comes from the <strong>model</strong> package.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.model.Affirmation
+
+@Composable
+fun AffirmationCard(affirmation: Affirmation) {
+
+}
+</code></pre>
+<ol type="1" start="4">
+<li>Add a <strong>modifier</strong> parameter to the signature. Set a default value of <strong>Modifier</strong> for the parameter.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+
+}
+</code></pre>
+<ol type="1" start="5">
+<li>Inside of the <strong>AffirmationCard</strong> method, call the <strong>Card</strong> composable. Pass in the <strong>modifier</strong> parameter.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.compose.material3.Card
+
+@Composable
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+    Card(modifier = modifier) {
+
+    }
+}
+</code></pre>
+<ol type="1" start="6">
+<li>Add a <strong>Column</strong> composable inside of the <strong>Card</strong> composable. Items within a <strong>Column</strong> composable arrange themselves vertically in the UI. This allows you to place an image above the associated text. Conversely, a <strong>Row</strong> composable arranges its contained items horizontally.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.compose.foundation.layout.Column
+
+@Composable
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+    Card(modifier = modifier) {
+        Column {
+
+        }
+    }
+
+}
+</code></pre>
+<ol type="1" start="7">
+<li>Add an <strong>Image</strong> composable inside of the lambda body of the <strong>Column</strong> composable. Recall that an <strong>Image</strong> composable always requires a resource to display, and a <strong>contentDescription</strong>. The resource should be a <strong>painterResource</strong> passed to the <strong>painter</strong> parameter. The <strong>painterResource</strong> method will load either vector drawables or rasterized asset formats like PNGs. Also, pass a <strong>stringResource</strong> for the <strong>contentDescription</strong> parameter.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+
+@Composable
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+    Card(modifier = modifier) {
+        Column {
+            Image(
+                painter = painterResource(affirmation.imageResourceId),
+                contentDescription = stringResource(affirmation.stringResourceId),
+            )
+        }
+    }
+}
+</code></pre>
+<ol type="1" start="8">
+<li>In addition to the <strong>painter</strong> and <strong>contentDescription</strong> parameters, pass a <strong>modifier</strong> and a <strong>contentScale</strong>. A <strong>contentScale</strong> determines how the image should be scaled and displayed. The <strong>Modifier</strong> object should have the <strong>fillMaxWidth</strong> attribute set and a height of <strong>194.dp</strong>. The <strong>contentScale</strong> should be <strong>ContentScale.Crop</strong>.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.layout.ContentScale
+
+@Composable
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+    Card(modifier = modifier) {
+        Column {
+            Image(
+                painter = painterResource(affirmation.imageResourceId),
+                contentDescription = stringResource(affirmation.stringResourceId),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(194.dp),
+                contentScale = ContentScale.Crop
+            )
+        }
+    }
+}
+</code></pre>
+<ol type="1" start="9">
+<li>Inside of the <strong>Column</strong>, create a <strong>Text</strong> composable after the <strong>Image</strong> composable. Pass a <strong>stringResource</strong> of the <strong>affirmation.stringResourceId</strong> to the <strong>text</strong> parameter, pass a <strong>Modifier</strong> object with the <strong>padding</strong> attribute set to <strong>16.dp</strong>, and set a text theme by passing <strong>MaterialTheme.typography.headlineSmall</strong> to the <strong>style</strong> parameter.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.platform.LocalContext
+
+@Composable
+fun AffirmationCard(affirmation: Affirmation, modifier: Modifier = Modifier) {
+    Card(modifier = modifier) {
+        Column {
+            Image(
+                painter = painterResource(affirmation.imageResourceId),
+                contentDescription = stringResource(affirmation.stringResourceId),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(194.dp),
+                contentScale = ContentScale.Crop
+            )
+            Text(
+                text = LocalContext.current.getString(affirmation.stringResourceId),
+                modifier = Modifier.padding(16.dp),
+                style = MaterialTheme.typography.headlineSmall
+            )
+        }
+    }
+}
+</code></pre>
+<h2 is-upgraded>Preview the AffirmationCard Composable</h2>
+<p>The card is the core of the UI for the <strong>Affirmations</strong> app, and you worked hard to create it! To check that the card looks correct, you can create a composable that can be previewed without launching the entire app.</p>
+<ol type="1">
+<li>Create a private method called <strong>AffirmationCardPreview()</strong>. Annotate the method with <strong>@Preview</strong> and <strong>@Composable</strong>.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.compose.ui.tooling.preview.Preview
+
+@Preview
+@Composable
+private fun AffirmationCardPreview() {
+
+}
+</code></pre>
+<ol type="1" start="2">
+<li>Inside of the method, call the <strong>AffirmationCard</strong> composable, and pass it a new <strong>Affirmation</strong> object with the <strong>R.string.affirmation1</strong> string resource and the <strong>R.drawable.image1</strong> drawable resource passed into its constructor.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">@Preview
+@Composable
+private fun AffirmationCardPreview() {
+    AffirmationCard(Affirmation(R.string.affirmation1, R.drawable.image1))
+}
+</code></pre>
+<ol type="1" start="3">
+<li>Open the <strong>Split</strong> tab and you will see a preview of the <strong>AffirmationCard</strong>. If necessary, click <strong>Build &amp; Refresh</strong> in the <strong>Design</strong> pane to display the preview.</li>
+</ol>
+<p class="image-container"><img alt="Affirmation Preview" src="img/a09a86ee4e5e43b1.png"></p>
+<h2 is-upgraded>Create the List</h2>
+<p>The list item component is the building block of the list. Once the list item is created, you can leverage it to make the list component itself.</p>
+<ol type="1">
+<li>Create a function called <strong>AffirmationList()</strong>, annotate it with the <strong>@Composable</strong> annotation, and declare a <strong>List</strong> of <strong>Affirmation</strong> objects as a parameter in the method signature.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun AffirmationList(affirmationList: List&lt;Affirmation&gt;) {
+
+}
+</code></pre>
+<ol type="1" start="2">
+<li>Declare a <strong>modifier</strong> object as a parameter in the method signature with a default value of <strong>Modifier</strong>.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun AffirmationList(affirmationList: List&lt;Affirmation&gt;, modifier: Modifier = Modifier) {
+
+}
+</code></pre>
+<ol type="1" start="3">
+<li>In Jetpack Compose, a scrollable list can be made using the <strong>LazyColumn</strong> composable. The difference between a <strong>LazyColumn</strong> and a <strong>Column</strong> is that a <strong>Column</strong> should be used when you have a small number of items to display, as <strong>Compose</strong> loads them all at once. A <strong>Column</strong> can only hold a predefined, or fixed, number of composables. A <strong>LazyColumn</strong> can add content on demand, which makes it good for long lists and particularly when the length of the list is unknown. A <strong>LazyColumn</strong> also provides scrolling by default, without additional code. Declare a <strong>LazyColumn</strong> composable inside of the <strong>AffirmationList()</strong> function. Pass the modifier object as an argument to the <strong>LazyColumn</strong>.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.compose.foundation.lazy.LazyColumn
+
+@Composable
+fun AffirmationList(affirmationList: List&lt;Affirmation&gt;, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+
+    }
+}
+</code></pre>
+<ol type="1" start="4">
+<li>In the lambda body of the <strong>LazyColumn</strong>, call the <strong>items()</strong> method, and pass in the <strong>affirmationList</strong>. The <strong>items()</strong> method is how you add items to the <strong>LazyColumn</strong>. This method is somewhat unique to this composable, and is otherwise not a common practice for most composables.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import androidx.compose.foundation.lazy.items
+
+@Composable
+fun AffirmationList(affirmationList: List&lt;Affirmation&gt;, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+        items(affirmationList) {
+
+        }
+    }
+}
+</code></pre>
+<ol type="1" start="5">
+<li>A call to the <strong>items()</strong> method requires a lambda function. In that function, specify a parameter of <strong>affirmation</strong> that represents one affirmation item from the <strong>affirmationList</strong>.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun AffirmationList(affirmationList: List&lt;Affirmation&gt;, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+        items(affirmationList) { affirmation -&gt;
+
+        }
+    }
+}
+</code></pre>
+<ol type="1" start="6">
+<li>For each affirmation in the list, call the <strong>AffirmationCard()</strong> composable. Pass it the <strong>affirmation</strong> and a <strong>Modifier</strong> object with the <strong>padding</strong> attribute set to <strong>8.dp</strong>.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">@Composable
+fun AffirmationList(affirmationList: List&lt;Affirmation&gt;, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+        items(affirmationList) { affirmation -&gt;
+            AffirmationCard(
+                affirmation = affirmation,
+                modifier = Modifier.padding(8.dp)
+            )
+        }
+    }
+}
+</code></pre>
+<h2 is-upgraded>Display the List</h2>
+<ol type="1">
+<li>In the <strong>AffirmationsApp</strong> composable, retrieve the current layout directions and save them in a variable. These will be used to configure the padding later.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.data.Datasource
+
+@Composable
+fun AffirmationsApp() {
+    val layoutDirection = LocalLayoutDirection.current
+}
+</code></pre>
+<ol type="1" start="2">
+<li>Now create a Surface composable. This composable will set the padding for the AffirmationsList composable.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.data.Datasource
+
+@Composable
+fun AffirmationsApp() {
+    val layoutDirection = LocalLayoutDirection.current
+    Surface() {
+    }
+}
+</code></pre>
+<ol type="1" start="3">
+<li>Pass a <strong>Modifier</strong> to the <strong>Surface</strong> composable that fills the max width and height of its parent, sets status bar padding, and sets the start and end padding to the <strong>layoutDirection</strong>. Here&#39;s an example of how to translate a **LayoutDirection object into padding: **WindowInsets.safeDrawing.asPaddingValues().calculateStartPadding(layoutDirection)**.</li>
+</ol>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.data.Datasource
+
+@Composable
+fun AffirmationsApp() {
+    val layoutDirection = LocalLayoutDirection.current
+    Surface(
+        Modifier = Modifier
+        .fillMaxSize()
+        .statusBarsPadding()
+        .padding(
+            start = WindowInsets.safeDrawing.asPaddingValues()
+                    .calculateStartPadding(layoutDirection),
+            end = WindowInsets.safeDrawing.asPaddingValues()
+                    .calculateEndPadding(layoutDirection),
+        ),
+    ) {
+    }
+}
+</code></pre>
+<ol type="1" start="4">
+<li>In the lambda for the <strong>Surface</strong> composable, call the <strong>AffirmationList</strong> composable, and pass <strong>DataSource().loadAffirmations()</strong> to the affirmationList parameter.</li>
+</ol>
+<p>Note: The <strong>DataSource</strong> class is found in the <strong>data</strong> package.</p>
+<p><code>MainActivity.kt</code></p>
+<pre><code language="language-kotlin" class="language-kotlin">import com.example.lastname.affirmations.data.Datasource
+
+@Composable
+fun AffirmationsApp() {
+    val layoutDirection = LocalLayoutDirection.current
+    Surface(
+        Modifier = Modifier
+        .fillMaxSize()
+        .statusBarsPadding()
+        .padding(
+            start = WindowInsets.safeDrawing.asPaddingValues()
+                    .calculateStartPadding(layoutDirection),
+            end = WindowInsets.safeDrawing.asPaddingValues()
+                    .calculateEndPadding(layoutDirection),
+        ),
+    ) {
+        AffirmationsList(
+            affirmationList = Datasource().loadAffirmations(),
+        )
+    }
+}
+</code></pre>
+<p>Run the <strong>Affirmations</strong> app on a device or emulator and see the finished product!</p>
+<p class="image-container"><img alt="Affirmation List Application" src="img/116bf7c32ff797d8.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conclusion" duration="0">
+        <p>You now know how to create cards, list items, and scrollable lists using Jetpack Compose! Keep in mind that these are just basic tools for creating a list. You can let your creativity roam and customize list items however you like!</p>
+<h2 is-upgraded>Summary</h2>
+<ul>
+<li>Use <a href="https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)" target="_blank">Card</a> composables to create list items.</li>
+<li>Modify the UI contained within a <code>Card</code> composable.</li>
+<li>Create a scrollable list using the <a href="https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,kotlin.Function1)" target="_blank">LazyColumn</a> composable.</li>
+<li>Build a list using custom list items.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

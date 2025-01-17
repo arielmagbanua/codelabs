@@ -1,5 +1,10 @@
 {
   "private": true,
+  "scripts": {
+    "build": "npm install && gulp build --codelabs-dir=codelabs",
+    "deploy": "firebase deploy",
+    "serve": "gulp serve --codelabs-dir=codelabs"
+  },
   "devDependencies": {
     "autoprefixer": "^9.3.1",
     "babel-core": "^6.26.3",
